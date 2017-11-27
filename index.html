@@ -84,7 +84,8 @@ description: "一顿操作猛如虎，一看战绩零杠五"
       num=0
     }
   },2500);
-	window.onload=function(){
+
+var burning=function(){
   var str=`
        <svg viewBox="0 0 600 300">
             <!-- Pattern -->
@@ -98,6 +99,7 @@ description: "一顿操作猛如虎，一看战绩零杠五"
         </svg>
 `;
 
-$('.site-heading>h1').html(str);}
-	
+$('.site-heading>h1').html(str);
+}
+	setTimeout(burning,2000)
   </script>
