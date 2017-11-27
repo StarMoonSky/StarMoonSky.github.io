@@ -14,9 +14,9 @@ sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Good advice is beyond all price."
 sidebar-avatar: /img/sb.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-<script>
-  alert(1)
-</script>
+
+
+
 
 # SNS settings
 RSS: false
