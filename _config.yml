@@ -1,7 +1,7 @@
 # Site settings
 title: 小程同学| Blog
 SEOTitle: 小程同学| Personal Blog 
-header-img: img/post-bg-desk.jpg
+header-img: img/example-slide-1.jpg
 email: 198925526@qq.com
 description: "Every failure is leading towards success."
 keyword: " 小程同学, 小程同学, JAVA, Python ,RUBY"
@@ -13,6 +13,8 @@ github_repo: "https://github.com/chengjiaoyang/chengjiaoyang.github.io.git" # yo
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Good advice is beyond all price."
 sidebar-avatar: /img/sb.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
 
 
 
