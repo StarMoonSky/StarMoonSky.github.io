@@ -61,12 +61,14 @@ description: "一顿操作猛如虎，一看战绩零杠五"
 </ul>
 {% endif %}
 <script>
- window.onload=function(){
-  var num=1;
+$(function(){ 
+　 var num=1;
   var sp = setInterval(function(){
     num++;
     $('.intro-header').css('background-image',"url('/img/example-slide-"+num+".jpg')");
-    
+    num>4&&num=1
   },1000)
- }
+}); 
+ 
+
   </script>
