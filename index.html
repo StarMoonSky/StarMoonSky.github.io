@@ -22,7 +22,11 @@ description: "一顿操作猛如虎，一看战绩零杠五"
     left: 100%;
     transition: left 2s ease 0s;
 }
-  
+  svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
     </style>
 
 
@@ -73,7 +77,18 @@ description: "一顿操作猛如虎，一看战绩零杠五"
       num=0
     }
   },2500);
-  
+  var str=`
+       <svg viewBox="0 0 600 300">
+            <!-- Pattern -->
+            <pattern id="p-fire" viewBox="30 100 186 200" patternUnits="userSpaceOnUse" width="216" height="200" x="-70" y="35">
+                <!-- Fire -->
+                <image xlink:href="img/fire.gif" width="256" height="300"/>
+            </pattern>
+            <!-- Text -->
+            <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text">Noor 
+			</text>
+        </svg>
+`
 
-
+$('.site-heading>h1').html(str)
   </script>
