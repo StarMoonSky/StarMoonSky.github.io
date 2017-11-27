@@ -97,9 +97,25 @@ header-img: "img/post-bg-rwd.jpg"
 </script>
 
 <style>
-    body{
-    background:red;
-    }
+  .intro-header:before{
+    content: "";
+    position: absolute;
+    width:120px;
+    height: 100%;
+    top: 0;
+    left: -150px;
+    overflow: hidden;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, 0)));
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    -webkit-transform: skewX(-25deg);
+    -moz-transform: skewX(-25deg)
+}
+.intro-header:hover:before {
+    left: 1300px;
+    transition: left 3.5s ease 0s;
+}
     </style>
 
 {% if site.duoshuo_username %}
