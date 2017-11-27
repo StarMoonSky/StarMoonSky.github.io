@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-description: "Hey, this is BY."
+description: "Hey, this is ChengJY."
 header-img: "img/post-bg-rwd.jpg"
 ---
 
@@ -18,7 +18,7 @@ header-img: "img/post-bg-rwd.jpg"
     <blockquote><p>冰冻三尺 非一日之寒，<br>
     积土成山 非斯须之作</p></blockquote>
 
-    <p>Hey，我是<strong>程娇阳</strong>，一只前端程序猿，现在北京工作。</p>
+    <p>Hey，我是<strong>小程同学</strong>，一只前端程序猿，现在北京工作。</p>
 
     <p>这是我的利用 <a href="https://pages.github.com/">GitHub Pages</a> 与 <a href="http://jekyll.com.cn/">Jekyll</a> 搭建的 个人博客。我在GitHub主页<a href="https://github.com/qiubaiying">👉GitHub·BY</a> 与 简书主页<a href="https://http://www.jianshu.com/u/e71990ada2fd">👉BY</a>。</p>
 
@@ -96,7 +96,27 @@ header-img: "img/post-bg-rwd.jpg"
     _render();
 </script>
 
-
+<style>
+  .intro-header:before{
+    content: "";
+    position: absolute;
+    width:120px;
+    height: 100%;
+    top: 0;
+    left:-11.5%;
+    overflow: hidden;
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, .2)), color-stop(100%, rgba(255, 255, 255, 0)));
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 0)0, rgba(255, 255, 255, .2)50%, rgba(255, 255, 255, 0)100%);
+    -webkit-transform: skewX(-25deg);
+    -moz-transform: skewX(-25deg)
+}
+.intro-header:hover:before {
+    left: 100%;
+    transition: left 2s ease 0s;
+}
+    </style>
 
 {% if site.duoshuo_username %}
 <!-- 多说评论框 start -->
