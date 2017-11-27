@@ -28,6 +28,17 @@ description: "一顿操作猛如虎，一看战绩零杠五"
   height: 100%;
 }
     </style>
+<svg viewBox="0 0 600 300">
+            <!-- Pattern -->
+            <pattern id="p-fire" viewBox="30 100 186 200" patternUnits="userSpaceOnUse" width="216" height="200" x="-70" y="35">
+                <!-- Fire -->
+                <image xlink:href="fire.gif" width="256" height="300"/>
+            </pattern>
+            <!-- Text -->
+            <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text">Noor 
+			</text>
+        </svg>
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -76,12 +87,6 @@ description: "一顿操作猛如虎，一看战绩零杠五"
     }
   },2500);
   
- var str=`<svg>
-<pattern id="p-fire" viewBox="30 100 186 200" patternUnits="userSpaceOnUse" width="216" height="200" x="-70" y="35">
-<image xlink:href="img/fire.gif" width="256" height="300"/>
-  </pattern><text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text">
-小程同学| Blog </text></svg>`;
-  var a=document.getElementsByClassName("subheading"); 
-      a[0].parentNode.append(str)
+
 
   </script>
