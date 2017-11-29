@@ -110,7 +110,7 @@ window.onload=function(){
   var ctop=$(this).scrollTop();
 $('.post-preview').each(function(){
 	if($(this).offset().top<ctop+250){
-	console.log(2)
+	$(this).addClass('animated rubberBand')
 	}
 })
 });
