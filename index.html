@@ -286,11 +286,13 @@ window.onload=function(){
 			<div style="text-align:center;clear:both;">
 			</div>
 		</div>`;
-	$('.site-heading').append(zop);
+	 var zdom=document.getElementsByClassName("site-heading");
+	zdom.appendChild(zop);
+	//$('.site-heading').append(zop);
 
 	$('.playground').mouseenter(function(){
 		setTimeout(burning,2500);
-		console.log('1enter')
+		console.log('2enter')
 		setTimeout(function(){
 		$('#zoppo').remove();
 		},2000);
