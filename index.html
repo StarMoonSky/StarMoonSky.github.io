@@ -102,5 +102,15 @@ var burning=function(){
 
 $('.site-heading>h1').html(str);
 }
-	setTimeout(burning,2000)
+	setTimeout(burning,2000);
+	$(window).scroll(function(){
+  //输出垂直的滚动距离
+  var ctop=$(this).scrollTop();
+$('.post-preview').each(function(){
+	if($(this).offset().top<ctop){
+	console.log(1)
+	}
+})
+});
+	
   </script>
