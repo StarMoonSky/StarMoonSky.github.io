@@ -74,7 +74,7 @@ description: "一顿操作猛如虎，一看战绩零杠五"
     {% endif %}
 </ul>
 {% endif %}
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
 <script>
 
 　 var num=0;
@@ -104,6 +104,7 @@ var burning=function(){
 $('.site-heading>h1').html(str);
 }
 	setTimeout(burning,2000);
+window.onload=function(){
 	$(window).scroll(function(){
   //输出垂直的滚动距离
   var ctop=$(this).scrollTop();
@@ -113,5 +114,6 @@ $('.post-preview').each(function(){
 	}
 })
 });
+}
 	
   </script>
