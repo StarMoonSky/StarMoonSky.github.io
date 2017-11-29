@@ -109,7 +109,7 @@ window.onload=function(){
   //输出垂直的滚动距离
   var ctop=$(this).scrollTop();
 $('.post-preview').each(function(){
-	if($(this).offset().top<ctop+250){
+	if($(this).offset().top<ctop+350){
 	$(this).addClass('animated rubberBand')
 	}
 })
