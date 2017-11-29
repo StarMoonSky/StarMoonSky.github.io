@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      dns劫持、http劫持和jsp劫持
+title:dns劫持、http劫持和jsp劫持
 subtitle:   
 date:       2017-10-04
 author:     CY
