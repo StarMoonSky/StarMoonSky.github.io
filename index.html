@@ -267,7 +267,10 @@ window.onload=function(){
 				if($(this).offset().top<ctop+350){
 				$(this).addClass('animated rubberBand')
 				}
-			})
+			});
+		if($('.short-about>a>img').offset().top<ctop+280){
+		$(this).addClass('animated slideInUp')
+		}
 			});
 
 	//zoppo
