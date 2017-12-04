@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      python-requests库和beautiful库
+title: python-requests库和beautiful库
 subtitle:   爬呀爬
 date:       2017-07-10
 author:     CC
