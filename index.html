@@ -218,7 +218,7 @@ description: "一顿操作猛如虎，一看战绩零杠五"
 		box-shadow:0 0 15px #eeeeee;
 		outline:none
 	}
-	body{
+	.dark{
 	 background: rgb(0,29,67) url(/img/01318f55e6c37832f875a1321dc181.jpg) no-repeat top center fixed;
 	}
     </style>
@@ -331,6 +331,7 @@ window.onload=function(){
 		
 		setTimeout(function(){
 		$('#zoppo').remove();
+		$('body').removeClass('dark')	
 		},2000);
 	})
 }
