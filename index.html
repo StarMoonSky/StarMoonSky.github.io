@@ -187,6 +187,37 @@ description: "一顿操作猛如虎，一看战绩零杠五"
     height: 255px;
     margin-top: -112px;
 	}
+	.spig {
+    display: block;
+    width: 150px;
+    height: 190px;
+    position: absolute;
+    top: -200px;
+    left: 160px;
+	   z-index: 9999;
+}
+	.mumu{
+		width: 150px;
+		height:190px;
+		cursor:move;
+		background:url(spig.png) no-repeat
+	}
+	#message{
+		color:#191919;
+		border:1px solid #c4c4c4;
+		background:#ddd;
+		border-radius:5px;
+		min-height:1em;
+		padding:5px;
+		top:-30px;
+		position:absolute;
+		text-align:center;
+		width:auto !important;
+		z-index:100000;
+		border-color:#eeeeee;
+		box-shadow:0 0 15px #eeeeee;
+		outline:none
+	}
     </style>
 
 
@@ -210,6 +241,10 @@ description: "一顿操作猛如虎，一看战绩零杠五"
     </p>
 </div>
 <hr>
+<div id="spig" class="spig" style="overflow: visible; ">
+    	    <div id="message" style="overflow: visible; display: block; ">别动手动脚的，把手拿开！</div>
+            <div id="mumu" class="mumu" style=""></div>
+</div>
 {% endfor %}
 
 <!-- Pager -->
@@ -300,6 +335,390 @@ window.onload=function(){
 	})
 }
 
+function $a(id,tag){var re=(id&&typeof id!="string")?id:document.getElementById(id);if(!tag){return re;}else{return re.getElementsByTagName(tag);}}
 
+function nTabs(thisObj,Num){
+    if(thisObj.className == "active") {
+        return;
+    }
+    var tabObj = thisObj.parentNode.id;
+    var tabList = document.getElementById(tabObj).getElementsByTagName("dd");
+    for(i=0; i <tabList.length; i++) {
+        if (i == Num) {
+            thisObj.className = "active"; 
+            document.getElementById(tabObj+"_Content"+i).style.display = "block";
+        } else {
+            tabList[i].className = "normal"; 
+            document.getElementById(tabObj+"_Content"+i).style.display = "none";
+        }
+    } 
+}
+
+function goTopEx(){
+    var obj=document.getElementById("goTopBtn");
+    function getScrollTop(){
+        var top = 0;
+        if (document.body && document.body.scrollTop) {
+            top  = document.body.scrollTop;
+        } else if (document.documentElement && document.documentElement.scrollTop) {
+            top = document.documentElement.scrollTop; 
+        }
+        return top;
+    }
+    function setScrollTop(value){
+        if (document.body && document.body.scrollTop) {
+            document.body.scrollTop = value;
+        } else if (document.documentElement && document.documentElement.scrollTop) {
+            document.documentElement.scrollTop = value; 
+        }
+    }
+    window.onscroll = function(){
+        getScrollTop()>0 ? obj.style.display = "" : obj.style.display = "none";
+    }
+    obj.onclick = function(){
+        var goTop=setInterval(scrollMove,10);
+        function scrollMove(){
+            setScrollTop(getScrollTop()/1.1);
+            if (getScrollTop()<1) {
+                clearInterval(goTop);
+           	}
+        }
+    }
+}
+
+//焦点滚动图 点击移动
+function movec()
+{
+    var o=$a("bd1lfimg","");
+    var oli=$a("bd1lfimg","dl");
+    var oliw=oli[0].offsetWidth; //每次移动的宽度     
+    var ow=o.offsetWidth-2;
+    var dnow=0; //当前位置    
+    var olf=oliw-(ow-oliw+10)/2;
+        o["scrollLeft"]=olf+(dnow*oliw);
+    var rqbd=$a("bd1lfsj","ul")[0];
+    var extime;
+
+    <!--for(var i=1;i<oli.length;i++){rqbd.innerHTML+="<li>"+i+"</li>";}-->
+    var rq=$a("bd1lfsj","li");
+    for(var i=0;i<rq.length;i++){reg(i);};
+    oli[dnow].className=rq[dnow].className="show";
+    var wwww=setInterval(uu,2000);
+
+    function reg(i){rq[i].onclick=function(){oli[dnow].className=rq[dnow].className="";dnow=i;oli[dnow].className=rq[dnow].className="show";mv();}}
+    function mv(){clearInterval(extime);clearInterval(wwww);extime=setInterval(bc,15);wwww=setInterval(uu,8000);}
+    function bc()
+    {
+        var ns=((dnow*oliw+olf)-o["scrollLeft"]);
+        var v=ns>0?Math.ceil(ns/10):Math.floor(ns/10);
+        o["scrollLeft"]+=v;if(v==0){clearInterval(extime);oli[dnow].className=rq[dnow].className="show";v=null;}
+    }
+    function uu()
+    {
+        if(dnow<oli.length-2)
+        {
+            oli[dnow].className=rq[dnow].className="";
+            dnow++;
+            oli[dnow].className=rq[dnow].className="show";
+        }
+        else{oli[dnow].className=rq[dnow].className="";dnow=0;oli[dnow].className=rq[dnow].className="show";}
+        mv();
+    }
+    o.onmouseover=function(){clearInterval(extime);clearInterval(wwww);}
+    o.onmouseout=function(){extime=setInterval(bc,15);wwww=setInterval(uu,8000);}
+}
+
+
+jQuery(document).ready(function($) {
+    $("#spig").mousedown(function(e) {
+        if (e.which == 3) {
+            showMessage("秘密通道:<br /><a href=\"http://www.aicoding.cn/\" target=_blank title=\"订阅\">订阅</a>   <a href=\"http://www.aicoding.cn/\" target=_blank title=\"逛街\">下载APP</a>  <a href=\"http://wwww.aicoding.cn\" title=\"首页\">首页</a>", 10000);
+        }
+    });
+    $("#spig").bind("contextmenu", function(e) {
+        return false;
+    });
+});
+
+//鼠标在消息上时
+jQuery(document).ready(function($) {
+    $("#message").hover(function() {
+        $("#message").fadeTo("100", 1);
+    });
+});
+
+//鼠标在上方时
+jQuery(document).ready(function($) {
+    //$(".mumu").jrumble({rangeX: 2,rangeY: 2,rangeRot: 1});
+    $(".mumu").mouseover(function() {
+        $(".mumu").fadeTo("300", 0.3);
+        msgs = ["我隐身了，你看不到我", "我会隐身哦！嘿嘿！", "别动手动脚的，把手拿开！", "把手拿开我才出来！"];
+        var i = Math.floor(Math.random() * msgs.length);
+        showMessage(msgs[i]);
+    });
+    $(".mumu").mouseout(function() {
+        $(".mumu").fadeTo("300", 1)
+    });
+});
+
+//开始
+jQuery(document).ready(function($) {
+    if (true) {
+        //如果是主页
+        var now = (new Date()).getHours();
+        if (now > 0 && now <= 6) {
+            showMessage('' + ' 你是夜猫子呀？还不睡觉，明天起的来么你？', 6000);
+        } else if (now > 6 && now <= 11) {
+            showMessage('' + ' 早上好，早起的鸟儿有虫吃噢！早起的虫儿被鸟吃，你是鸟儿还是虫儿？嘻嘻！', 6000);
+        } else if (now > 11 && now <= 14) {
+            showMessage( ''+ ' 中午了，吃饭了么？不要饿着了，饿死了谁来挺我呀！', 6000);
+        } else if (now > 14 && now <= 18) {
+            showMessage( ''+ ' 下午的时光真难熬！还好有你在！', 6000);
+        } else {
+            showMessage( ''+ ' 快来逗我玩吧！', 6000);
+        }
+    } else {
+        showMessage('欢迎' + '' + '来到木易瓶子屋阅读《' + title + '》', 6000);
+    }
+    $(".spig").animate({
+        top: $(".spig").offset().top + 300,
+        left: document.body.offsetWidth - 160
+    }, {
+        queue: false,
+        duration: 1000
+    });
+    //    window.setTimeout(function () {
+    //        showMessage("下面播报明日天气<iframe name=\"xidie\" src=\"http://t.xidie.com/skin/2010-0601.html\"frameborder=\“0\” scrolling=\"no\" height=\"15px\"  width=\"130px\" allowtransparency=\"true\" ></iframe>", 10000);
+    //    },
+    //	4000);
+});
+
+//鼠标在某些元素上方时
+jQuery(document).ready(function($) {
+    $('.arti a').click(function() {
+        //标题被点击时
+        showMessage('正在用吃奶的劲加载《<span style="color:#0099cc;">' + $(this).attr('title') + '</span>》请稍候');
+    });
+    $('.arti a').mouseover(function() {
+        showMessage('要看看《<span style="color:#0099cc;">' + $(this).attr('title') + '</span>》这篇文章么？');
+    });
+    $('.pre_page').mouseover(function() {
+        showMessage('要翻到上一页吗?');
+    });
+    $('.next_page').mouseover(function() {
+        showMessage('要翻到下一页吗?');
+    });
+    $('.comment-form textarea[name="info\[content\]"]').focus(function() {
+        showMessage(visitor + '，请认真填写你的观点哟，要不然瓶子会把你的评论作为垃圾评论哟！');
+    });
+    $('.btn input[type="submit"]').mouseover(function() {
+        showMessage('确认提交了么？');
+    });
+    $('.search input[name="search"]').focus(function() {
+        showMessage('输入你想搜索的关键词再按Enter(回车)键就可以搜索啦!');
+    });
+    $('.home a').mouseover(function() {
+        showMessage('点它就可以回到首页啦！');
+    });
+    $('.addFav a').mouseover(function() {
+        showMessage('点它可以把此页加入书签哦！');
+    });
+    $('.cate a').mouseover(function() {
+        showMessage('点击查看此分类下得所有文章');
+    });
+    $('#goTopBtn').mouseover(function() {
+        showMessage('点它可以返回网页最顶端.');
+    });
+    $('.bshare-custom a').mouseover(function() {
+        showMessage('你知道吗?点它可以分享本文到<span style="color:#0099cc;">' + $(this).attr('title') + '</span>');
+    });
+});
+
+//无聊讲点什么
+jQuery(document).ready(function($) {
+
+    window.setInterval(function() {
+        msgs = ["博客下起了黄色的雪！黄色？。。。", "木易瓶子屋出新文章了哦！赶快去看看吧！", "播报现在天气<iframe name=\"xidie\" src=\"http://t.xidie.com/skin/2010-0601.html\"frameborder=\“0\” scrolling=\"no\" height=\"26px\"  width=\"135px\" allowtransparency=\"true\" ></iframe>", "陪我聊天吧！", "右击有惊喜哦！", "<a href=\"http://www.aicoding.cn/\" target=\"_blank\" rel=\"external\" tip=\"Feed\"><img border=\"0\" title=\"订阅木易瓶子屋\" alt=\"Feed\" src=\"http://www.aicoding.cn/static/images/rss.jpg\"></a>", "好无聊哦，你都不陪我玩！", "…@……!………", "^%#&*!@*(&#)(!)(", "我可爱吧！嘻嘻!~^_^!~~", "谁淫荡呀?~谁淫荡?，你淫荡呀!~~你淫荡！~~", "从前有座山，山上有座庙，庙里有个老和尚给小和尚讲故事，讲：“从前有座……”"];
+        var i = Math.floor(Math.random() * msgs.length);
+        showMessage(msgs[i], 10000);
+    }, 35000);
+});
+
+//无聊动动
+jQuery(document).ready(function($) {
+    window.setInterval(function() {
+        msgs = ["博客下起了黄色的雪！黄色？。。。", "木易瓶子屋出新文章了哦！赶快去看看吧！", "播报明日天气<iframe name=\"xidie\" src=\"http://t.xidie.com/skin/2010-0601.html\"frameborder=\“0\” scrolling=\"no\" height=\"26px\"  width=\"135px\" allowtransparency=\"true\" ></iframe>", "快快订阅我的博客吧！<a href=\"http://www.aicoding.cn/\" target=\"_blank\" rel=\"external\" tip=\"Feed\"><img border=\"0\" title=\"订阅木易瓶子屋博客\" alt=\"Feed\" src=\"http://www.aicoding.cn/static/images/rss.jpg\"></a>", "乾坤大挪移！", "我飘过来了！~", "我飘过去了", "我得意地飘！~飘！~"];
+        var i = Math.floor(Math.random() * msgs.length);
+        s = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.75];
+        var i1 = Math.floor(Math.random() * s.length);
+        var i2 = Math.floor(Math.random() * s.length);
+        $(".spig").animate({
+            left: document.body.offsetWidth / 2 * (1 + s[i1]),
+            top: document.body.offsetheight / 2 * (1 + s[i1])
+        }, {
+            duration: 2000,
+            complete: showMessage(msgs[i])
+        });
+    }, 45000);
+});
+//无聊讲点什么
+jQuery(document).ready(function($) {
+
+    window.setInterval(function() {
+        msgs = ["播报现在天气<iframe name=\"xidie\" src=\"http://t.xidie.com/skin/2010-0601.html\"frameborder=\“0\” scrolling=\"no\" height=\"26px\"  width=\"135px\" allowtransparency=\"true\" ></iframe>", "陪我聊天吧！", "<a href=\"http://www.zan3.com/feed/\" target=\"_blank\" rel=\"external\" tip=\"Feed\"><img border=\"0\" title=\"订阅木易瓶子屋\" alt=\"Feed\" src=\"http://www.zan3.com/static/spig/rss.png\"></a>", "好无聊哦，你都不陪我玩！", "…@……!………", "^%#&*!@*(&#)(!)(", "我可爱吧！嘻嘻!~^_^!~~", "谁淫荡呀?~谁淫荡?，你淫荡呀!~~你淫荡！~~", "从前有座山，山上有座庙，庙里有个老和尚给小和尚讲故事，讲：“从前有座……”"];
+        var i = Math.floor(Math.random() * msgs.length);
+        showMessage(msgs[i], 10000);
+    }, 35000);
+});
+
+//无聊动动
+jQuery(document).ready(function($) {
+    window.setInterval(function() {
+        msgs = ["播报明日天气<iframe name=\"xidie\" src=\"http://t.xidie.com/skin/2010-0601.html\"frameborder=\“0\” scrolling=\"no\" height=\"26px\"  width=\"135px\" allowtransparency=\"true\" ></iframe>", "快快订阅我的博客吧！<a href=\"http://www.aicoding.cn/\" target=\"_blank\" rel=\"external\" tip=\"Feed\"><img border=\"0\" title=\"订阅木易瓶子屋\" alt=\"Feed\" src=\"http://www.zan3.com/static/spig/rss.png\"></a>", "乾坤大挪移！", "我飘过来了！~", "我飘过去了", "我得意地飘！~飘！~"];
+        var i = Math.floor(Math.random() * msgs.length);
+        s = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.75];
+        var i1 = Math.floor(Math.random() * s.length);
+        var i2 = Math.floor(Math.random() * s.length);
+        $(".spig").animate({
+            left: document.body.offsetWidth / 2 * (1 + s[i1]),
+            top: document.body.offsetheight / 2 * (1 + s[i1])
+        }, {
+            duration: 2000,
+            complete: showMessage(msgs[i])
+        });
+    }, 45000);
+});
+
+//评论资料
+jQuery(document).ready(function($) {
+    $("#author").click(function() {
+        showMessage("留下你的尊姓大名！");
+        $(".spig").animate({
+            top: $("#author").offset().top - 70,
+            left: $("#author").offset().left - 170
+        }, {
+            queue: false,
+            duration: 1000
+        });
+    });
+    $("#email").click(function() {
+        showMessage("留下你的邮箱，不然就是无头像人士了！");
+        $(".spig").animate({
+            top: $("#email").offset().top - 70,
+            left: $("#email").offset().left - 170
+        }, {
+            queue: false,
+            duration: 1000
+        });
+    });
+    $("#url").click(function() {
+
+        showMessage("快快告诉我你的家在哪里，好让我去参观参观！");
+        $(".spig").animate({
+            top: $("#url").offset().top - 70,
+            left: $("#url").offset().left - 170
+        }, {
+            queue: false,
+            duration: 1000
+        });
+    });
+    $("#comment").click(function() {
+        showMessage("认真填写哦！不然会被认作垃圾评论的！我的乖乖~");
+        $(".spig").animate({
+            top: $("#comment").offset().top - 70,
+            left: $("#comment").offset().left - 170
+        }, {
+            queue: false,
+            duration: 1000
+        });
+    });
+});
+
+var spig_top = 50;
+//滚动条移动
+jQuery(document).ready(function($) {
+    var f = $(".spig").offset().top;
+    $(window).scroll(function() {
+        $(".spig").animate({
+            top: $(window).scrollTop() + f + 300
+        }, {
+            queue: false,
+            duration: 1000
+        });
+    });
+});
+
+//鼠标点击时
+jQuery(document).ready(function($) {
+    var stat_click = 0;
+    $(".mumu").click(function() {
+        if (!ismove) {
+            stat_click++;
+            if (stat_click > 4) {
+                msgs = ["你有完没完呀？", "你已经摸我" + stat_click + "次了", "非礼呀！救命！OH，My ladygaga"];
+                var i = Math.floor(Math.random() * msgs.length);
+                //showMessage(msgs[i]);
+            } else {
+                msgs = ["筋斗云！~我飞！", "我跑呀跑呀跑！~~", "别摸我，大男人，有什么好摸的！", "惹不起你，我还躲不起你么？", "不要摸我了，我会告诉老婆来打你的！", "干嘛动我呀！小心我咬你！"];
+                var i = Math.floor(Math.random() * msgs.length);
+                //showMessage(msgs[i]);
+            }
+            s = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.75];
+            var i1 = Math.floor(Math.random() * s.length);
+            var i2 = Math.floor(Math.random() * s.length);
+            $(".spig").animate({
+                left: document.body.offsetWidth / 2 * (1 + s[i1]),
+                top: document.body.offsetheight / 2 * (1 + s[i1])
+            }, {
+                duration: 500,
+                complete: showMessage(msgs[i])
+            });
+        } else {
+            ismove = false;
+        }
+    });
+});
+//显示消息函数 
+function showMessage(a, b) {
+    if (b == null)
+        b = 10000;
+    jQuery("#message").hide().stop();
+    jQuery("#message").html(a);
+    jQuery("#message").fadeIn();
+    jQuery("#message").fadeTo("1", 1);
+    jQuery("#message").fadeOut(b);
+}
+;
+//拖动
+var _move = false;
+var ismove = false;
+//移动标记
+var _x, _y;
+//鼠标离控件左上角的相对位置
+jQuery(document).ready(function($) {
+    $("#spig").mousedown(function(e) {
+        _move = true;
+        _x = e.pageX - parseInt($("#spig").css("left"));
+        _y = e.pageY - parseInt($("#spig").css("top"));
+    });
+    $(document).mousemove(function(e) {
+        if (_move) {
+            var x = e.pageX - _x;
+            var y = e.pageY - _y;
+            var wx = $(window).width() - $('#spig').width();
+            var dy = $(document).height() - $('#spig').height();
+            if (x >= 0 && x <= wx && y > 0 && y <= dy) {
+                $("#spig").css({
+                    top: y,
+                    left: x
+                });
+                //控件新位置
+                ismove = true;
+            }
+        }
+    }).mouseup(function() {
+        _move = false;
+    });
+});
 	
   </script>
