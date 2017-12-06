@@ -98,16 +98,16 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
+        title: "W3school",
+        href: "http://www.w3school.com.cn/"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "简书",
+        href: "http://www.jianshu.com/"
     },{
-        title: "Apple",
-        href: "https://apple.com"
+        title: "知乎",
+        href: "https://www.zhihu.com/"
     },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "百度",
+        href: "https://www.baidu.com/"
     }
 ]
