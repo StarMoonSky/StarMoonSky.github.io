@@ -202,6 +202,12 @@ description: "一顿操作猛如虎，一看战绩零杠五"
 		cursor:move;
 		background:url(img/spig.png) no-repeat
 	}
+	.mumu2{
+		width: 150px;
+		height:190px;
+		cursor:move;
+		background:url(img/wk.png) no-repeat
+	}
 	#message{
 		color:#191919;
 		border:1px solid #c4c4c4;
@@ -493,9 +499,16 @@ jQuery(document).ready(function($) {
     } else {
         showMessage('欢迎' + '' + '来到木易瓶子屋阅读《' + title + '》', 6000);
     }
-    $(".spig").animate({
-        top: $(".spig").offset().top + 300,
+    $("#spig").animate({
+        top: $("#spig").offset().top + 300,
         left: document.body.offsetWidth - 160
+    }, {
+        queue: false,
+        duration: 1000
+    });
+	$("#spig2").animate({
+        top: $("#spig2").offset().top + 600,
+        left: document.body.offsetWidth - 360
     }, {
         queue: false,
         duration: 1000
@@ -565,14 +578,21 @@ jQuery(document).ready(function($) {
         s = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.75];
         var i1 = Math.floor(Math.random() * s.length);
         var i2 = Math.floor(Math.random() * s.length);
-        $(".spig").animate({
+        $("#spig").animate({
             left: document.body.offsetWidth / 2 * (1 + s[i1]),
             top: document.body.offsetheight / 2 * (1 + s[i1])
         }, {
             duration: 2000,
             complete: showMessage(msgs[i])
         });
-    }, 45000);
+	 $("#spig2").animate({
+            left: document.body.offsetWidth / 2 * (1 + s[i1])-200,
+            top: document.body.offsetheight / 2 * (1 + s[i1])+300
+        }, {
+            duration: 2000,
+            complete: showMessage(msgs[i])
+        });    
+    }, 35000);
 });
 //无聊讲点什么
 jQuery(document).ready(function($) {
@@ -592,14 +612,21 @@ jQuery(document).ready(function($) {
         s = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, -0.1, -0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.75];
         var i1 = Math.floor(Math.random() * s.length);
         var i2 = Math.floor(Math.random() * s.length);
-        $(".spig").animate({
+        $("#spig").animate({
             left: document.body.offsetWidth / 2 * (1 + s[i1]),
             top: document.body.offsetheight / 2 * (1 + s[i1])
         }, {
             duration: 2000,
             complete: showMessage(msgs[i])
         });
-    }, 45000);
+	$("#spig2").animate({
+            left: document.body.offsetWidth / 2 * (1 + s[i1])-300,
+            top: document.body.offsetheight / 2 * (1 + s[i1])+200
+        }, {
+            duration: 2000,
+            complete: showMessage(msgs[i])
+        });    
+    }, 35000);
 });
 
 //评论资料
@@ -652,12 +679,18 @@ var spig_top = 50;
 jQuery(document).ready(function($) {
     var f = $(".spig").offset().top;
     $(window).scroll(function() {
-        $(".spig").animate({
+        $("#spig").animate({
             top: $(window).scrollTop() + f + 300
         }, {
             queue: false,
             duration: 1000
         });
+	 $("#spig2").animate({
+            top: $(window).scrollTop() + f + 450
+        }, {
+            queue: false,
+            duration: 1000
+        });    
     });
 });
 
