@@ -11,8 +11,22 @@ tags:
     - HTTP
 ---
 
+#### 把某几位手机号换成星号
+###替换手机号中间4位
+```swift
+function shelterTelNum(num){
+return num.toString().replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+}
+```
+###替换手机号前7位
+```swift
+function shelterTelNum(num){
+return num.toString().replace(/\d{7}(\d{4})/, '*******$1');
+}
+```
 
-### urllib2 getKeyName
+
+#### urllib2 getKeyName
 
 ```swift
 var keyCodeMap = {
