@@ -784,8 +784,15 @@ jQuery(document).ready(function($) {
     });
 });
 
-	//thugLife
-// 	var imgThug=new Image();
-// 	imgThug.src='img/thug.png';
-// 	$('.short-about').append(imgThug)
+(function () {
+  var re = /x/;
+  var i = 0;
+  console.log(re);
+
+  re.toString = function () {
+    return '第 ' + (++i) + ' 次打开控制台,你打算干嘛?!';
+  };
+})();
+
+
 </script>
