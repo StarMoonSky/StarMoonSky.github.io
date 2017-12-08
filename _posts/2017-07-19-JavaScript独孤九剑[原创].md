@@ -1,17 +1,19 @@
 ---
 layout:     post
-title:      工作中用过的ES6
-subtitle:   汇总实际用过的es6 es7 ts 等
+title:      JavaScript独孤九剑[原创]
+subtitle:   百日练棍,千日练枪,万日练刀,一生练剑
 date:       2017-07-19
-author:     CC
+author:     程娇阳
 header-img: img/post-bg-hacker.jpg
 catalog: true
 tags:
-    - es6
+    - JavaScript
 ---
 
->占个坑,准备汇总
-
+>前言:
+   剑气纵横三万里,一剑光寒十九洲。
+   
+   本少侠自幼喜欢文学,尤其武侠小说,很羡慕大侠们舞刀弄剑、飞檐走壁。
 # Objectice-C
 
 在上个 Objectice-C 项目中，使用的 HMAC 和 SHA1 进行加密。如下代码：
