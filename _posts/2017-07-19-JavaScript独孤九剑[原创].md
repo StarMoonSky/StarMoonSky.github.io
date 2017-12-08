@@ -3,7 +3,7 @@ layout:     post
 title:      JavaScript独孤九剑[原创]
 subtitle:   百日练棍,千日练枪,万日练刀,一生练剑---作者联系方式198925526@qq.com
 date:       2017-07-19
-author:     程娇阳
+author:     CC
 header-img: img/post-bg-hacker.jpg
 catalog: true
 tags:
