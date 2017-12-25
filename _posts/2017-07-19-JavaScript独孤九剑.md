@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      JavaScript独孤九剑[原创]
-subtitle:   百日练棍,千日练枪,万日练刀,一生练剑---作者联系方式198925526@qq.com
+title:      JavaScript独孤九剑
+subtitle:   百日练棍,千日练枪,万日练刀,一生练剑
 date:       2017-07-19
 author:     CC
 header-img: img/post-bg-hacker.jpg
@@ -13,7 +13,8 @@ tags:
 >前言:
    剑气纵横三万里,一剑光寒十九洲。
    
-   本少侠自幼喜欢文学,尤其武侠小说,很羡慕大侠们舞刀弄剑、飞檐走壁。
+   本少侠自幼喜欢文学,尤其武侠小说,很羡慕大侠们舞刀弄剑、飞檐走壁。编程江湖之大,各门派称雄,学习本秘籍后,需要勤加练习
+   注入神功,初对战时往往有些晦涩,
 # Objectice-C
 
 在上个 Objectice-C 项目中，使用的 HMAC 和 SHA1 进行加密。如下代码：
