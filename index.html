@@ -794,7 +794,49 @@ jQuery(document).ready(function($) {
   };
 })();
 
+//光标
+	function blink(classname,speed){
+			var style=document.getElementsByTagName('style')[0];
+			console.log(style);
+			var ssr=`
+				@keyframes flash {
+				  0% {
+					opacity: 1;
+				  }
+				  100% {
+					opacity: 0;
+				  }
+				}
+			.${classname}::after{
+			content:'|';
+			animation: flash 0.5s none infinite alternate
+				
+		}`;
+			style.innerHTML+=ssr;
 
+			var str=document.getElementsByClassName(classname)[0].innerHTML;
+			document.getElementsByClassName(classname)[0].innerHTML='';
+			console.log(str)
+			var arr=str.split('');
+			timer=setInterval(function(){
+			
+					var sp=''
+					sp +=arr.shift();
+					var myIdElement = document.getElementsByClassName(classname)[0];
+					console.log(myIdElement)
+					var beforeStyle = window.getComputedStyle(myIdElement,":after");
+					
+
+
+document.getElementsByClassName(classname)[0].innerHTML+=sp;
+
+if(document.getElementsByClassName(classname)[0].innerHTML==str){
+	clearInterval(timer)
+}
+			},speed)
+		}
+	
+	blink('subheading',1000)
 </script>
 
 
